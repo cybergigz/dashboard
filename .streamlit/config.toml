@@ -1,8 +1,7 @@
 [theme]
 primaryColor = "#667eea"
-backgroundColor = "#ffffff"
-secondaryBackgroundColor = "#f0f2f6"
-textColor = "#262730"
+# backgroundColor and textColor removed to allow dynamic theme switching
+# secondaryBackgroundColor removed to allow dynamic theme switching
 font = "sans serif"
 
 [server]

@@ -38,17 +38,24 @@ def apply_custom_css():
         # Dark mode CSS
         st.markdown("""
         <style>
+            .stApp {
+                background-color: #0e1117;
+                color: #ffffff;
+            }
             .main > div {
                 padding-top: 2rem;
-                background-color: #1e1e1e;
+                background-color: #0e1117;
                 color: #ffffff;
             }
             .stMetric {
-                background-color: #2d2d2d;
+                background-color: #262730;
                 border: 1px solid #404040;
                 padding: 1rem;
                 border-radius: 0.5rem;
                 margin: 0.5rem 0;
+                color: #ffffff;
+            }
+            .stMetric > div {
                 color: #ffffff;
             }
             .crypto-card {
@@ -61,16 +68,57 @@ def apply_custom_css():
             .stSelectbox {
                 margin-bottom: 1rem;
             }
-            h1 {
+            .stSelectbox > div > div {
+                background-color: #262730;
                 color: #ffffff;
-                text-align: center;
-                margin-bottom: 2rem;
+            }
+            h1, h2, h3 {
+                color: #ffffff !important;
             }
             .sidebar .sidebar-content {
-                background: linear-gradient(135deg, #2d2d2d 0%, #1e1e1e 100%);
+                background-color: #262730;
             }
             .stDataFrame {
-                background-color: #2d2d2d;
+                background-color: #262730;
+            }
+            .stDataFrame > div {
+                background-color: #262730;
+            }
+            .stButton > button {
+                background-color: #667eea;
+                color: white;
+                border: none;
+            }
+            .stMultiSelect > div > div {
+                background-color: #262730;
+                color: #ffffff;
+            }
+            .stSlider > div > div {
+                background-color: #262730;
+            }
+            .stNumberInput > div > div {
+                background-color: #262730;
+                color: #ffffff;
+            }
+            .stTextInput > div > div {
+                background-color: #262730;
+                color: #ffffff;
+            }
+            .stExpander {
+                background-color: #262730;
+                border: 1px solid #404040;
+            }
+            .stTabs > div {
+                background-color: #262730;
+            }
+            .stMarkdown {
+                color: #ffffff;
+            }
+            div[data-testid="stSidebar"] {
+                background-color: #262730;
+            }
+            div[data-testid="stSidebar"] > div {
+                background-color: #262730;
             }
         </style>
         """, unsafe_allow_html=True)
@@ -78,8 +126,14 @@ def apply_custom_css():
         # Light mode CSS
         st.markdown("""
         <style>
+            .stApp {
+                background-color: #ffffff;
+                color: #262730;
+            }
             .main > div {
                 padding-top: 2rem;
+                background-color: #ffffff;
+                color: #262730;
             }
             .stMetric {
                 background-color: #f0f2f6;
@@ -98,7 +152,7 @@ def apply_custom_css():
             .stSelectbox {
                 margin-bottom: 1rem;
             }
-            h1 {
+            h1, h2, h3 {
                 color: #2c3e50;
                 text-align: center;
                 margin-bottom: 2rem;
@@ -106,9 +160,13 @@ def apply_custom_css():
             .sidebar .sidebar-content {
                 background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             }
+            div[data-testid="stSidebar"] {
+                background-color: #f0f2f6;
+            }
         </style>
         """, unsafe_allow_html=True)
 
+# Apply custom CSS based on dark mode state
 apply_custom_css()
 
 
@@ -306,7 +364,6 @@ def main():
         dark_mode_toggle = st.toggle("🌙 Dark Mode", value=st.session_state.dark_mode)
         if dark_mode_toggle != st.session_state.dark_mode:
             st.session_state.dark_mode = dark_mode_toggle
-            apply_custom_css()
             st.rerun()
 
         # Refresh button
